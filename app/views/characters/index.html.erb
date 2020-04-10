@@ -1,0 +1,38 @@
+<h1>Characters List</h1>
+<!-- 
+<div>
+  <%= link_to 'Create', characters_path, method: 'POST' %>
+</div>
+
+<div>
+  <table>
+    <thead>
+      <th>種族</th>
+      <th>職業</th>
+    </thead>
+    <tbody>
+      <td><%= @random_race %></td>
+      <td><%= @random_role %></td> 
+      <td><%= @random_op1 %></td>
+    </tbody>
+  </table>
+</div>
+-->
+
+<%= form_for( RoleCreater.new ,url: characters_path, method: 'post') do |f| %>
+  <div>
+    選項A：<%= select_tag(:option, raw('<option value="race">種族</option><option value="role">職業</option>')) %>
+    選項B：<%= select_tag(:option2, raw('<option value="race">種族</option><option value="role">職業</option>')) %>
+    選項C：<%= select_tag(:option3, raw('<option value="5">5</option><option value="10">10</option>')) %>
+    
+  </div>
+<%= f.submit "創建" %>
+<% end %>
+
+
+<%= @random_op1 %>
+<%= @random_op2 %>
+
+
+
+

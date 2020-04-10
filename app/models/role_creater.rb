@@ -1,0 +1,2 @@
+class RoleCreater < ApplicationRecord
+end
