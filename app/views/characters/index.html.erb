@@ -21,18 +21,66 @@
 
 <%= form_for( RoleCreater.new ,url: characters_path, method: 'post') do |f| %>
   <div>
-    選項A：<%= select_tag(:option, raw('<option value="race">種族</option><option value="role">職業</option>')) %>
-    選項B：<%= select_tag(:option2, raw('<option value="race">種族</option><option value="role">職業</option>')) %>
-    選項C：<%= select_tag(:option3, raw('<option value="5">5</option><option value="10">10</option>')) %>
-    
+    選項A：<%= select_tag(:option, raw('<option value="race">種族</option>
+                                       <option value="role">職業</option>
+                                       <option value="personality">個性</option>
+                                       <option value="skill">技能</option>
+                                       ')) %>
+    選項B：<%= select_tag(:option2, raw('<option value="race">種族</option>
+                                       <option value="role">職業</option>
+                                       <option value="personality">個性</option>
+                                       <option value="skill">技能</option>
+                                       ')) %>
+    選項C：<%= select_tag(:option3, raw('<option value="race">種族</option>
+                                       <option value="role">職業</option>
+                                       <option value="personality">個性</option>
+                                       <option value="skill">技能</option>
+                                       ')) %>
+    選項D：<%= select_tag(:option4, raw('<option value="race">種族</option>
+                                       <option value="role">職業</option>
+                                       <option value="personality">個性</option>
+                                       <option value="skill">技能</option>
+                                       ')) %>
+    資料筆數：<%= select_tag(:option5, raw('<option value="10">10</option><option value="20">20</option>')) %>
   </div>
 <%= f.submit "創建" %>
 <% end %>
 
-
-<%= @random_op1 %>
-<%= @random_op2 %>
-
+<%#= @random_op1 %>
+<%#= @random_op2 %>
 
 
+
+
+<!--
+<% if @random_op1 != nil%>
+<table>
+  <tr>
+    <% @random_op1.each do |i| %>
+      <td><%= i %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <% @random_op2.each do |i| %>
+      <td><%= i %></td>
+    <% end %>
+  </tr>
+</table>
+<% end %>
+-->
+
+<table>
+  <% if @r != nil%>
+    <% n = 0 %>
+    <% (@r.length / 4).ceil.times do %>
+    <tr>
+      <td><%= @r[n] %></td>
+      <td><%= @r[n + 2] %></td>
+      <td><%= @r[n + 1] %></td>
+      <td><%= @r[n + 3] %></td>
+    </tr>  
+      <% n += 4 %> 
+    <% end %>
+  <% end %>
+</table>
 
