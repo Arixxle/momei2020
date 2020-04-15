@@ -1,7 +1,26 @@
 <div class="row mt-3">
-  <div class="col-12">
-    <h1 class="text-center">Welcome!</h1>
+
+  <% if session[:hero2020] %>
+  <div class="col-12 mx-auto">
+    <div class="jumbotron kanban-greet">
+      <div class="container">
+        <h1 class="display-4">Welcome back Hero <%= session[:hero2020] %> </h1>
+        <p class="lead">World Momei now is available to travel, are you ready?</p>
+      </div>
+    </div>
   </div>
+  <% else %>
+  <div class="col-12 mx-auto">
+    <div class="jumbotron kanban-welcome">
+      <div class="container">
+        <h1 class="display-4">Hero, I'd never seen you before,</h1>
+        <p class="lead">Do you wanna get in World Momei ?</p>
+        <button class="btn btn-info"> Log in </button>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
 </div>
 
 

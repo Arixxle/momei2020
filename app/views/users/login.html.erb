@@ -1,4 +1,45 @@
+
 <div class="row">
+  <div class="col-6 mx-auto mt-5">
+    <%= form_for(@user, url: '/login', method: 'post') do |user| %>
+      <div class="form-group">
+        <%= user.label :email, "Email" %>
+        <%= user.text_field :email, class: 'form-control' %>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= user.label :password, "Password" %>
+          <%= user.password_field :password, class: 'form-control' %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= user.label :password_confirmation, "Password Confirm" %>
+          <%= user.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Log in</button>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6 mx-auto mt-5">
+    <% if @user.errors.any?%>
+      <div class="alert alert-danger" role="alert">
+        <ul>
+          <% @user.errors.full_messages.each do |m| %>
+            <li><%= m %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- <div class="row">
   <div class="col-6 mx-auto mt-5">
     <form>
       <div class="form-group">
@@ -18,4 +59,4 @@
       <button type="submit" class="btn btn-primary">Log in</button>
     </form>
   </div>
-</div>
+</div> -->
