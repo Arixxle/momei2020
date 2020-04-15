@@ -1,4 +1,9 @@
-<h1>Characters List</h1>
+<div class="row justify-center mt-3">
+  <div class="col-12">
+    <h2 class="text-center">Characters List</h2>
+  </div>
+</div>
+
 <!-- 
 <div>
   <%= link_to 'Create', characters_path, method: 'POST' %>
@@ -18,68 +23,66 @@
   </table>
 </div>
 -->
-
 <%= form_for( RoleCreater.new ,url: characters_path, method: 'post') do |f| %>
-  <div>
-    選項A：<%= select_tag(:option, raw('<option value="race">種族</option>
-                                       <option value="role">職業</option>
-                                       <option value="personality">個性</option>
-                                       <option value="skill">技能</option>
-                                       ')) %>
-    選項B：<%= select_tag(:option2, raw('<option value="race">種族</option>
-                                       <option value="role">職業</option>
-                                       <option value="personality">個性</option>
-                                       <option value="skill">技能</option>
-                                       ')) %>
-    選項C：<%= select_tag(:option3, raw('<option value="race">種族</option>
-                                       <option value="role">職業</option>
-                                       <option value="personality">個性</option>
-                                       <option value="skill">技能</option>
-                                       ')) %>
-    選項D：<%= select_tag(:option4, raw('<option value="race">種族</option>
-                                       <option value="role">職業</option>
-                                       <option value="personality">個性</option>
-                                       <option value="skill">技能</option>
-                                       ')) %>
-    資料筆數：<%= select_tag(:option5, raw('<option value="10">10</option><option value="20">20</option>')) %>
+<div class="row">
+  <div class="col-12 col-md-3 form-group">
+    <div>
+      <h5 class="text-center">選項A</h5>
+    </div>
+    <div>
+      <%= select_tag(:option, options_for_select([ ['種族', "race"], ['職業', "role"], ['個性', "personality"],  ['技能', "skill"]] ), {:class => 'form-control form-control-sm'})  %>
+    </div>
   </div>
-<%= f.submit "創建" %>
+  <div class="col-12 col-md-3 form-group">
+    <div>
+      <h5 class="text-center">選項B</h5>
+    </div>
+    <div>
+      <%= select_tag(:option2, options_for_select([ ['種族', "race"], ['職業', "role"], ['個性', "personality"],  ['技能', "skill"]] ), {:class => 'form-control form-control-sm'})  %>
+    </div>
+  </div>
+  <div class="col-12 col-md-3 form-group">
+    <div>
+      <h5 class="text-center">選項C</h5>
+    </div>
+    <div>
+      <%= select_tag(:option3, options_for_select([ ['種族', "race"], ['職業', "role"], ['個性', "personality"],  ['技能', "skill"]] ), {:class => 'form-control form-control-sm'})  %>
+    </div>
+  </div>
+  <div class="col-12 col-md-3 form-group">
+    <div>
+      <h5 class="text-center">選項D</h5>
+    </div>
+    <div>
+      <%= select_tag(:option4, options_for_select([ ['種族', "race"], ['職業', "role"], ['個性', "personality"],  ['技能', "skill"]] ), {:class => 'form-control form-control-sm'})  %>
+    </div>
+  </div>
+</div>
+
+<div>
+  資料筆數：<input type="text" name="option5">
+</div>
+
+
+
+<%= f.submit "創建", class: 'btn btn-info btn-block my-2' %>
 <% end %>
 
-<%#= @random_op1 %>
-<%#= @random_op2 %>
-
-
-
-
-<!--
-<% if @random_op1 != nil%>
-<table>
-  <tr>
-    <% @random_op1.each do |i| %>
-      <td><%= i %></td>
-    <% end %>
-  </tr>
-  <tr>
-    <% @random_op2.each do |i| %>
-      <td><%= i %></td>
-    <% end %>
-  </tr>
-</table>
-<% end %>
--->
-
-<table>
+<table class="table table-dark">
   <% if @r != nil%>
     <% n = 0 %>
+    <% l = 1 %> <!--l = 項目編號-->
     <% (@r.length / 4).ceil.times do %>
     <tr>
+      <td><%= l %></td>
       <td><%= @r[n] %></td>
       <td><%= @r[n + 2] %></td>
       <td><%= @r[n + 1] %></td>
       <td><%= @r[n + 3] %></td>
     </tr>  
       <% n += 4 %> 
+      <% l += 1 %> 
+
     <% end %>
   <% end %>
 </table>
