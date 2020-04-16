@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root "welcome#index"
   resources :characters
-  resources :generators
+  resources :generators, only: [:index]
+  resources :profiles
   get "/login", to: "users#login"
   post "/login", to: "users#login_action"
   get "/logout", to: "users#logout"
